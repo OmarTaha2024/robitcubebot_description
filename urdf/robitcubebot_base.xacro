@@ -37,7 +37,9 @@
   <joint name="base_joint" type="fixed">
     <parent link="base_footprint"/>
     <child link="base_link" />
-    <origin xyz="0 0 ${wheel_radius}" rpy="0 0 3.14"/>
+    <!--origin xyz="0 0 ${wheel_radius}" rpy="0 0 3.14"/-->
+
+    <origin xyz="0 0 0" rpy="0 0 3.14"/>    
   </joint>
 
   <!-- Wheels -->
@@ -57,7 +59,8 @@
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 -0.015 0" rpy="1.57 0 0" />
+      <!--origin xyz="0 -0.015 0" rpy="1.57 0 0" /-->
+      <origin xyz="0 0 0" rpy="1.57 0 0" />
       <geometry>
         <sphere radius="0.033"/>
       </geometry>
@@ -86,14 +89,15 @@
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0.015 0" rpy="-1.57 0 0" />
+      <!--origin xyz="0 0.015 0" rpy="-1.57 0 0" /-->
+      <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <sphere radius="0.033"/>
       </geometry>
     </collision>
   </link>
   <joint name="front_wheel_left_joint" type="continuous">
-    <origin xyz="-${base_width / 1.8} ${base_width / 2.1} ${wheel_radius}" rpy="0 0 0" />
+    <origin xyz="-${base_width / 1.8} ${base_width / 2} ${wheel_radius}" rpy="0 0 0" />
     <parent link="base_link" />
     <child link="front_wheel_left_link" />
     <axis xyz="0 -1 0" />
@@ -113,19 +117,20 @@
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 -0.015 0" rpy="1.57 0 0" />
+      <!--origin xyz="0 -0.015 0" rpy="1.57 0 0" /-->
+      <origin xyz="0 0 0" rpy="1.57 0 0" />
       <geometry>
         <sphere radius="0.033"/>
       </geometry>
     </collision>
   </link>
 
-  <joint name="back_wheel_right_joint" type="revolute">
+  <joint name="back_wheel_right_joint" type="fixed">
     <origin xyz="${base_width / 1.8} -${base_width / 2.1} ${wheel_radius}" rpy="0 0 0" />
     <parent link="base_link" />
     <child link="back_wheel_right_link" />
     <axis xyz="0 -1 0" />
-    <limit effort="10" velocity="10" lower="-1.57" upper="1.57"/>
+
   </joint>
   <link
     name="back_wheel_left_link">
@@ -143,18 +148,19 @@
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0.015 0" rpy="-1.57 0 0" />
+      <!--origin xyz="0 0.015 0" rpy="-1.57 0 0" /-->
+      <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <sphere radius="0.033"/>
       </geometry>
     </collision>
   </link>
-  <joint name="back_wheel_left_joint" type="revolute">
-    <origin xyz="${base_width / 1.8} ${base_width / 2.1} ${wheel_radius}" rpy="0 0 0" />
+  <joint name="back_wheel_left_joint" type="fixed">
+    <origin xyz="${base_width / 1.8} ${base_width / 2} ${wheel_radius}" rpy="0 0 0" />
     <parent link="base_link" />
     <child link="back_wheel_left_link" />
     <axis xyz="0 -1 0" />
-    <limit effort="10" velocity="10" lower="-1.57" upper="1.57"/>
+
   </joint>
 
 

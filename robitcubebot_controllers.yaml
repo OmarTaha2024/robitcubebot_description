@@ -82,7 +82,7 @@ simple_velocity_controller:
       - front_wheel_left_joint
       - front_wheel_right_joint
       - back_wheel_left_joint
-      -back_wheel_right_joint
+      - back_wheel_right_joint
 
 
 odom_publisher:
@@ -101,7 +101,7 @@ joint_state_broadcaster:
       - front_wheel_left_joint
       - front_wheel_right_joint
       - back_wheel_left_joint
-      -back_wheel_right_joint
+      - back_wheel_right_joint
 
 lifter_controller:
   ros__parameters:
