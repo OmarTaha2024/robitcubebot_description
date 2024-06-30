@@ -71,6 +71,8 @@
     <parent link="link_platform_mid" />
     <axis xyz="0 0 1" rpy="0 0 0"/>
     <limit effort="10000.0" lower="-0.05" upper="-0.035" velocity="0.2"/>
+    <dynamics damping="0.1" friction="0.1"/>
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 
   </joint>
 
