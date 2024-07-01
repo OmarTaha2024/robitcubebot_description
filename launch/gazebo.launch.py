@@ -54,6 +54,18 @@ def generate_launch_description():
                                   ],
                         output="screen"
     )
+    pkg_dir = get_package_share_directory('robitcubebot_bringup')
+
+    # Path to the world file
+    world_file = os.path.join(pkg_dir, 'worlds', 'warehouse.world')
+
+    # Gazebo launch file
+    gazebo_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')
+        ),
+        launch_arguments={'world': world_file}.items()
+    )
 
     return LaunchDescription([
         env_var,
@@ -61,5 +73,6 @@ def generate_launch_description():
         start_gazebo_server,
         start_gazebo_client,
         robot_state_publisher_node,
-        spawn_robot
+        spawn_robot,
+        
     ])
