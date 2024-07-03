@@ -54,6 +54,19 @@ def generate_launch_description():
                                   ],
                         output="screen"
     )
+    world = os.path.join(
+        get_package_share_directory('robitcubebot_bringup'),
+        'worlds',
+        'turtlebot3_world.world'
+    )
+
+    gzserver_cmd = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory('gazebo_ros'), 'launch', 'gzserver.launch.py')
+        ),
+        launch_arguments={'world': world}.items()
+    )
+
 
     return LaunchDescription([
         env_var,
