@@ -84,6 +84,7 @@
   </gazebo>
 
 
+ 
   <!-- IMU -->
   <gazebo reference="imu_link">
     <sensor name="imu" type="imu">
